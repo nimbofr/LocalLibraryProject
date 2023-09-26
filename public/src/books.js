@@ -5,11 +5,18 @@ function findAuthorById(authors = [], id = 0) {
   return findobj;
 }
 
+function doesBookExist(books = [], id = "") {
+  return books.some((book) => {
+    return book.id === id;
+  });
+}
+
 function findBookById(books = [], id = "") {
+  if (doesBookExist(books, id)){
   let bookobj = books.find((book) => {
     return book.id === id;
   });
-  return bookobj;
+  return bookobj;}
 }
 
 function partitionBooksByBorrowedStatus(books = []) {
